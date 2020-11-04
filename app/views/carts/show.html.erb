@@ -1,0 +1,19 @@
+<% total = 0 %>
+<% @cart.cart_items.each do |e| %>
+    <p>
+        <% p = Product.find(e.product_id) %>
+        <%= p.name %>
+        <%= p.price %>円
+        <%= e.qty %>
+        <%= link_to image_tag('trash.png'), cart_item_path(e), method: :delete %>
+        <% total += p.price.to_i * e.qty.to_i %>
+    </p>
+<% end %>
+
+<p>
+合計金額：<%= total %>円 
+</p>
+
+<p>
+<%= link_to '商品一覧', products_path %>
+</p>

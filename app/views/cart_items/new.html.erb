@@ -1,0 +1,18 @@
+<%= form_tag cart_items_path, method: :post do %>
+  <%= hidden_field_tag :product_id, @product_id %>
+  <p>
+      <%= '商品名' %>
+      <%= Product.find(@product_id).name %>
+  </p>
+  <p>
+      <%= '価格' %>
+      <%= Product.find(@product_id).price %>
+  </p>
+  <p>
+      <%= label_tag :qty, '数量' %>
+      <%= text_field_tag :qty, 1 %>
+  </p>
+  <p>
+      <%= submit_tag '登録' %>
+  </p>
+<% end %>  

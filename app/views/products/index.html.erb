@@ -1,0 +1,16 @@
+<% @products.each do |e| %>
+    <p>
+        <%=e.name%>
+        <%=e.price%>円
+        <%= link_to image_tag('cart.png'), new_cart_item_path(product_id: e.id) %>
+        <%= link_to image_tag('trash.png'), product_path(e), method: :delete %>
+    </p>
+<% end %>
+
+<p>
+<%= link_to 'カートを見る', cart_path(current_cart.id) %>
+</p>
+<hr>
+<p>
+<%= link_to '商品登録', new_product_path %>
+</p>
